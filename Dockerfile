@@ -91,12 +91,11 @@ RUN set -x \
 	&& sed -i -e '/listen/!b' -e '/80;/!b' -e 's/80;/8080;/' /etc/nginx/conf.d/default.conf \
 	&& sed -i -e '/user/!b' -e '/nginx/!b' -e '/nginx/d' /etc/nginx/nginx.conf \
 	&& sed -i 's!/var/run/nginx.pid!/var/cache/nginx/nginx.pid!g' /etc/nginx/nginx.conf \
-	&& sed -i '$ d' /etc/nginx/nginx.conf \
-	&& echo	"server {" >> /etc/nginx/nginx.conf \
-	&& echo "server_name complex.gdcb.iastate.edu;" >> /etc/nginx/nginx.conf \
-	&& echo "rewrite ^/(.*)$ http://complexcomputation.org/$1 permanent;" >> /etc/nginx/nginx.conf \
-	&& echo "}" >> /etc/nginx/nginx.conf \
-	&& echo "}" >> /etc/nginx/nginx.conf
+	&& echo	"server {" >> /etc/nginx/conf.d/complex.conf \
+	&& echo "listen       8080;" >> /etc/nginx/conf.d/complex.conf
+	&& echo "server_name complex.gdcb.iastate.edu;" >> /etc/nginx/conf.d/complex.conf \
+	&& echo "rewrite ^/(.*)$ http://complexcomputation.org/$1 permanent;" >> /etc/nginx/conf.d/complex.conf \
+	&& echo "}" >> /etc/nginx/conf.d/complex.conf
 
 
 # forward request and error logs to docker log collector
