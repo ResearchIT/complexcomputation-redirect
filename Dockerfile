@@ -95,7 +95,7 @@ RUN set -x \
 	&& echo	"server {" >> /etc/nginx/nginx.conf \
 	&& echo "server_name complex.gdcb.iastate.edu;" >> /etc/nginx/nginx.conf \
 	&& echo "rewrite ^/(.*)$ http://complexcomputation.org/$1 permanent;" >> /etc/nginx/nginx.conf \
-	&& echo "}" >> /etc/nginx/nginx.conf
+	&& echo "}" >> /etc/nginx/nginx.conf \
 	&& echo "}" >> /etc/nginx/nginx.conf
 
 
