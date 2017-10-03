@@ -93,7 +93,7 @@ RUN set -x \
 	&& sed -i 's!/var/run/nginx.pid!/var/cache/nginx/nginx.pid!g' /etc/nginx/nginx.conf \
 	&& echo	"server {" >> /etc/nginx/conf.d/complex.conf \
 	&& echo "listen       8080;" >> /etc/nginx/conf.d/complex.conf \
-	&& echo "server_name complex.gdcb.iastate.edu;" >> /etc/nginx/conf.d/complex.conf \
+	&& echo "server_name complex.gdcb.iastate.edu www.complex.iastate.edu;" >> /etc/nginx/conf.d/complex.conf \
 	&& echo "rewrite ^/(.*)$ http://complexcomputation.org/$1 permanent;" >> /etc/nginx/conf.d/complex.conf \
 	&& echo "}" >> /etc/nginx/conf.d/complex.conf
 
